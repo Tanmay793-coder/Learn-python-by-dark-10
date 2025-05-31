@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Python Concepts</title>
+<style>
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: 'Noto Sans', sans-serif; /* Clean, modern font, commonly used in Japanese web design */
+    line-height: 1.6;
+    background-color: #f9f9f9; /* Soft light background color */
+    color: #333; /* Dark text color */
+    background-image: url('https://www.example.com/cherry-blossom-bg.jpg'); /* Optional: Background image of cherry blossoms */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Container */
+.container {
+    width: 85%;
+    margin: auto;
+    padding: 30px;
+}
+
+/* Header Styles */
+header {
+    background: #f44336; /* Bright, bold red inspired by Japan's flag */
+    color: indigo;
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 4px solid #2196f3; /* Blue border to contrast with red */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+header h1 {
+    font-size: 3em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Section Styles */
+section {
+    margin-bottom: 30px;
+    padding: 30px;
+    background: #ffffff; /* White background for sections */
+    border-radius: 15px;
+    border: 2px solid #2196f3; /* Blue border for Japanese theme */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Div Styles */
+div {
+    margin-bottom: 20px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading Styles */
+h2 {
+    color: #f44336; /* Bold red color for headings */
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+/* Paragraph Styles */
+p {
+    color: #555;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+/* Link Styles */
+a {
+    color: #2196f3; /* Blue color inspired by Japanese design */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #f44336; /* Change to red when hovered */
+    text-decoration: underline;
+}
+
+/* Button Styles */
+button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background-color: #2196f3; /* Blue button background */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #f44336; /* Change button color to red on hover */
+    transform: scale(1.05);
+}
+
+/* Footer Styles */
+footer {
+    background: #333; /* Dark footer to balance the design */
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    border-top: 4px solid #2196f3; /* Blue border for footer */
+}
+
+footer .footer-links {
+    display: block;
+    padding: 0;
+    margin-top: 10px;
+    list-style-type: none;
+}
+
+footer .footer-links li {
+    margin: 5px 0;
+}
+
+footer .footer-links a {
+    color: red;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: color 0.3s;
+}
+
+footer .footer-links a:hover,
+footer .footer-links a:focus {
+    color: #2196f3; /* Hover effect for footer links */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 90%; /* Adjust container width for smaller screens */
+    }
+
+    header h1 {
+        font-size: 2em; /* Smaller font size for header */
+    }
+
+    section {
+        padding: 20px; /* Reduced padding for sections */
+    }
+
+    h2 {
+        font-size: 1.8em; /* Smaller heading size */
+    }
+
+    button {
+        font-size: 1em; /* Smaller font size for buttons */
+    }
+}
+
+  </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Mastering Advanced Python</h1>
+           
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section id="generators-and-iterators">
+                <h2>Generators and Iterators</h2>
+                <p><strong>Generators:</strong> Learn how to use Python’s <code>yield</code> keyword to create iterators and handle lazy evaluation.</p>
+                <p><strong>Iterators:</strong> Understand the iterator protocol and how to implement custom iterators for your data structures.</p>
+            </section>
+
+            <section id="decorators-and-metaclasses">
+                <h2>Decorators and Metaclasses</h2>
+                <p><strong>Decorators:</strong> Explore how decorators enhance or modify functions or methods without changing their code.</p>
+                <p><strong>Metaclasses:</strong> Dive into metaclasses to customize class creation and behavior.</p>
+            </section>
+
+            <section id="context-managers">
+                <h2>Context Managers</h2>
+                <p><strong>Context Management:</strong> Discover how to use context managers with the <code>with</code> statement to manage resources efficiently.</p>
+                <p><strong>Custom Context Managers:</strong> Learn to create your own context managers using classes or generators.</p>
+            </section>
+
+            <section id="concurrency-and-parallelism">
+                <h2>Concurrency and Parallelism</h2>
+                <p><strong>Threads and Processes:</strong> Understand the differences between threading and multiprocessing and how to use them to improve performance.</p>
+                <p><strong>Asyncio:</strong> Get familiar with asynchronous programming using the <code>asyncio</code> library for concurrent tasks.</p>
+            </section>
+
+            <section id="advanced-data-structures">
+                <h2>Advanced Data Structures</h2>
+                <p><strong>Collections Module:</strong> Explore advanced data structures like <code>namedtuple</code>, <code>defaultdict</code>, and <code>Counter</code>.</p>
+                <p><strong>Custom Data Structures:</strong> Learn to implement your own data structures to fit specialized needs.</p>
+            </section>
+
+            <section id="type-hints-and-annotations">
+                <h2>Type Hints and Annotations</h2>
+                <p><strong>Type Hints:</strong> Discover how type hints and annotations can improve code readability and help with debugging.</p>
+                <p><strong>Static Type Checkers:</strong> Learn to use tools like <code>mypy</code> for static type checking.</p>
+            </section>
+
+            <section id="performance-optimization">
+                <h2>Performance Optimization</h2>
+                <p><strong>Profiling:</strong> Use profiling tools to identify bottlenecks and optimize your code.</p>
+                <p><strong>Efficient Coding:</strong> Learn techniques for writing efficient code, including algorithmic improvements and memory management.</p>
+            </section>
+
+            <section id="best-practices">
+                <h2>Best Practices</h2>
+                <p><strong>Code Style:</strong> Follow PEP 8 guidelines and other best practices to write clean and maintainable code.</p>
+                <p><strong>Testing:</strong> Implement robust testing strategies using frameworks like <code>unittest</code> or <code>pytest</code>.</p>
+            </section>
+            <section>
+        <h2>Related Pages</h2
+        <ul type="color:#ffffff">
+            <li><a href="index.html"><h3>Home</h></a></li>
+            <li><a href="installation-guide.html"><h3> Installation Guide<h3></a></li>
+            <li><a href="getting-started.html"><h3>Getting Started With Python</h3></a></li>
+            <li><a href="programming-basics.html"><h3>Programming Basics</h3></a></li>
+            <li><a href="libraries-frameworks.html"><h3>Libraries & Frameworks</h3></a></li>
+            <li><a href="project-ideas.html"><h3>Project Ideas</h3></a></li>
+        </ul>
+    </div>
+    </section>
+    </main>
+    <div clas="footer-links">
+<a href="https://www.youtube.com/@DARK-10-TanmaySingh" style="color:orange">
+<h1>Youtube: DARK 10 </h1></a>
+    </div>
+    <footer>
+        <div class="container">
+            <p>&copy;2024 Learn Python By Dark 10 | All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="terms-of-service.html">Terms of Service</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
