@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Programming Basics - Detailed Explanation</title>
+<style>
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: 'Lato', sans-serif; /* Italian-inspired font */
+    line-height: 1.6; /* Improved line height for readability */
+    background-color: #f4f4f4; /* Soft background color */
+    color: #333; /* Dark text color */
+}
+
+/* Container */
+.container {
+    width: 80%;
+    margin: auto; /* Center the container */
+    padding: 20px; /* Padding for the container */
+}
+
+/* Header Styles */
+header {
+    background: #005f73; /* Deep teal for header */
+    color: #fff; /* White text */
+    padding: 20px 0; /* Padding for header */
+    text-align: center; /* Center text */
+    border-bottom: 4px solid #ffd700; /* Golden border */
+}
+
+header h1 {
+    font-size: 2.5em; /* Large font size */
+    font-weight: bold; /* Bold text */
+    text-transform: uppercase; /* Uppercase text */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+}
+
+/* Section Styles */
+section {
+    margin-bottom: 30px; /* Space between sections */
+    padding: 20px; /* Increased padding for sections */
+    background: #e0fbfc; /* Light cyan background for sections */
+    border-radius: 10px; /* More rounded corners */
+    border: 2px solid #ffd700; /* Golden border */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+}
+
+/* Div Styles */
+div {
+    margin-bottom: 20px; /* Space between divs */
+    padding: 15px; /* Increased padding for divs */
+    background: #ffffff; /* White background for divs */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Light shadow */
+}
+
+/* Heading Styles */
+h2 {
+    color: #005f73; /* Deep teal for headings */
+    font-size: 2em; /* Larger font size */
+    margin-bottom: 15px; /* Space below headings */
+    text-transform: uppercase; /* Uppercase text */
+}
+
+/* Paragraph Styles */
+p {
+    color: #555; /* Darker gray for text */
+    font-size: 1.1em; /* Slightly larger font size */
+    margin-bottom: 15px; /* Space below paragraphs */
+}
+
+/* Link Styles */
+a {
+    color: #ffd700; /* Golden color for links */
+    text-decoration: none; /* No underline */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+a:hover {
+    color: #005f73; /* Change color on hover */
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Button Styles */
+button {
+    padding: 12px 25px; /* Increased padding */
+    font-size: 1.1em; /* Slightly larger font size */
+    background-color: #ffd700; /* Golden background */
+    color: #333; /* Dark text */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+button:hover {
+    background-color: #005f73; /* Change background on hover */
+    color: #fff; /* Change text color on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Footer Styles */
+footer {
+    background: #005f73; /* Deep teal for footer */
+    color: #fff; /* White text */
+    padding: 15px 0; /* Padding for footer */
+    text-align: center; /* Center text */
+    border-top: 4px solid #ffd700; /* Golden border */
+}
+
+footer .footer-links {
+    display: block; /* Display links in a block */
+    padding: 0;
+     text-align: center; /* Center text */
+    margin-top: 10px;
+    list-style-type: none; /* Remove list item dots */
+}
+
+footer .footer-links li {
+    margin: 10px 0; /* Space between each link */
+     text-align: center; /* Center text */
+}
+
+footer .footer-links a {
+    color: white; /* White text color */
+    text-decoration: none; /* No underline */
+    font-size: 1.1em; /* Font size */
+     text-align: center; /* Center text */
+    transition: color 0.3s; /* Smooth color transition */
+}
+
+footer .footer-links a:hover,
+footer .footer-links a:focus {
+    color: #f39c12; /* Golden hover effect */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 90%; /* Adjust container width */
+    }
+
+    header h1 {
+        font-size: 2em; /* Smaller font size for header */
+    }
+
+    section {
+        padding: 15px; /* Smaller padding for sections */
+    }
+
+    h2 {
+        font-size: 1.5em; /* Smaller font size for headings */
+    }
+
+    button {
+        font-size: 1em; /* Smaller font size for buttons */
+    }
+
+    footer .footer-links {
+        text-align: left; /* Align links to the left */
+    }
+}
+
+</style>
+</head>
+<body>
+    <header>
+        <h1>Python Programming Basics</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Introduction</h2>
+            <p>This page covers the basics of Python programming, including variables, data types, control flow, loops, functions, and classes. Each section includes detailed explanations and code examples.</p>
+        </section>
+        <section>
+            <h2>1. Variables and Data Types</h2>
+            <p>Variables are used to store data in a program. Python supports several data types including integers, floats, strings, and booleans.</p>
+            <pre><code>
+# Variables and Data Types
+integer_var = 10              # Integer
+float_var = 20.5              # Float
+string_var = "Hello, World!" # String
+boolean_var = True            # Boolean
+
+print("Integer:", integer_var)
+print("Float:", float_var)
+print("String:", string_var)
+print("Boolean:", boolean_var)
+            </code></pre>
+            <button onclick="showExplanation('variables')">Show Explanation</button>
+            <p id="variables" class="explanation"></p>
+        </section>
+        <section>
+            <h2>2. Lists</h2>
+            <p>Lists are used to store multiple items in a single variable. Lists are ordered, mutable, and allow duplicate elements.</p>
+            <pre><code>
+# Lists
+my_list = [1, 2, 3, 4, 5]    # List of integers
+print("\nList:", my_list)
+
+# Adding an item to the list
+my_list.append(6)
+print("List after appending 6:", my_list)
+
+# Accessing items
+print("First item:", my_list[0])
+            </code></pre>
+            <button onclick="showExplanation('lists')">Show Explanation</button>
+            <p id="lists" class="explanation"></p>
+        </section>
+        <section>
+            <h2>3. Dictionaries</h2>
+            <p>Dictionaries store data in key-value pairs. They are unordered, mutable, and do not allow duplicate keys.</p>
+            <pre><code>
+# Dictionaries
+my_dict = {
+    "name": "Alice",
+    "age": 25,
+    "city": "New York"
+}
+
+print("\nDictionary:", my_dict)
+
+# Accessing items
+print("Name:", my_dict["name"])
+
+# Adding a new key-value pair
+my_dict["email"] = "alice@example.com"
+print("Dictionary after adding email:", my_dict)
+            </code></pre>
+            <button onclick="showExplanation('dictionaries')">Show Explanation</button>
+            <p id="dictionaries" class="explanation"></p>
+        </section>
+        <section>
+            <h2>4. Control Flow</h2>
+            <p>Control flow statements allow you to control the execution of code based on certain conditions. Python uses if, elif, and else statements for conditional execution.</p>
+            <pre><code>
+# Control Flow
+x = 15
+
+if x > 10:
+    print("\nX is greater than 10")
+elif x == 10:
+    print("X is equal to 10")
+else:
+    print("X is less than 10")
+            </code></pre>
+            <button onclick="showExplanation('controlflow')">Show Explanation</button>
+            <p id="controlflow" class="explanation"></p>
+        </section>
+        <section>
+            <h2>5. Loops</h2>
+            <p>Loops are used to execute a block of code repeatedly. Python provides two main types of loops: for loops and while loops.</p>
+            <pre><code>
+# Loops
+print("\nCounting from 1 to 5:")
+for i in range(1, 6):
+    print(i)
+            </code></pre>
+            <button onclick="showExplanation('loops')">Show Explanation</button>
+            <p id="loops" class="explanation"></p>
+        </section>
+        <section>
+            <h2>6. Functions</h2>
+            <p>Functions are blocks of code designed to perform a specific task. Functions help in reusability and organization of code.</p>
+            <pre><code>
+# Functions
+def greet(name):
+    return f"Hello, {name}!"
+
+print("\nFunction output:", greet("Bob"))
+            </code></pre>
+            <button onclick="showExplanation('functions')">Show Explanation</button>
+            <p id="functions" class="explanation"></p>
+        </section>
+        <section>
+            <h2>7. Classes and Objects</h2>
+            <p>Classes are used to create user-defined data structures. They bundle data and functionality together. Objects are instances of classes.</p>
+            <pre><code>
+# Classes and Objects
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def greet(self):
+        return f"Hi, I'm {self.name} and I'm
+         {self.age} years old."
+
+person1 = Person("Charlie", 30)
+print("\nClass output:", person1.greet())
+            </code></pre>
+            <button onclick="showExplanation('classes')">Show Explanation</button>
+            <p id="classes" class="explanation"></p>
+        </section>
+    </main>
+    <div class="links">
+        <h3>Related Pages</h3>
+        <ul style="color:black">
+            <li><a href="index.html" style="color:grey"><h4>Home</h4></a></li>
+            <li><a href="installation-guide.html" style="color:grey"><h4>Installation Guide</h4></a></li>
+            <li><a href="getting-started.html" style="color:grey"><h4>Getting Started With Python</h4></a></li>
+            <li><a href="advanced-python.html" style="color:grey"><h4>Advanced Python Concepts</h4></a></li>
+            <li><a href="libraries-frameworks.html" style="color:grey"><h4>Libraries & Frameworks</h4></a></li>
+            <li><a href="project-ideas.html" style="color:grey"><h4>Project Ideas</h4></a></li>
+        </ul>
+    </div>
+    <div clas="footer-links">
+<a href="https://www.youtube.com/@DARK-10-TanmaySingh" style="color:#333">
+<h1>Youtube: DARK 10 </h1></a>
+    </div>
+    <footer>
+        <p>&copy;2024 Learn Python By Dark 10 | All rights reserved.</p>
+            <ul class="footer-links" style="color:#333">
+                <li><a href="privacy-policy.html" style="color:white">Privacy Policy</a></li>
+                <li><a href="terms-of-service.html" style="color:white">Terms of Service</a></li>
+                <li><a href="contact.html" style="color:white">Contact Us</a></li>
+            </ul>
+    </footer>
+    <script>
+        // Function to show explanations for each topic
+function showExplanation(topic) {
+    const explanations = {
+        'variables': 'Variables are used to store data values. Python supports several types including integers, floats, strings, and booleans. Each type has its own properties and methods.',
+        'lists': 'Lists are ordered collections that can hold items of different types. They are mutable, meaning you can change their content after creation.',
+        'dictionaries': 'Dictionaries store data in key-value pairs. They are unordered, mutable, and allow you to access values by their associated keys.',
+        'controlflow': 'Control flow statements like if, elif, and else allow you to execute different blocks of code based on conditions. They help in making decisions in your program.',
+        'loops': 'Loops, such as for and while, allow you to execute a block of code repeatedly. They are useful for iterating over sequences or performing actions multiple times.',
+        'functions': 'Functions are blocks of reusable code that perform specific tasks. They help in organizing and managing code efficiently by grouping related tasks.',
+        'classes': 'Classes define blueprints for creating objects. They encapsulate data and methods that operate on the data. Objects are instances of classes and can access class methods and properties.'
+    };
+
+    document.getElementById(topic).innerText = explanations[topic];
+}
+
+    </script>
+</body>
+</html>
+
