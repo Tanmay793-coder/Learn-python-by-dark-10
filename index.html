@@ -1158,9 +1158,9 @@ body.dark-mode .quiz-question {
                     <li><a href="#faq">FAQ</a></li>
                 </ul>
             </nav>
-            <button class="login-button" id="loginButton">
-                <i class="fas fa-sign-in-alt"></i> Login
-            </button>
+            <button class="login-button" id="loginButton" >
+                <i class="fas fa-sign-in-alt"></i><a href="auth.html"> Login
+            </a></button>
         </div>
     </header>
 
@@ -1901,7 +1901,11 @@ print("Hello, World!")</textarea>
         // Login Button
         const loginButton = document.getElementById('loginButton');
         loginButton.addEventListener('click', () => {
-            alert('Login functionality would be implemented here!');
+         const loginButton = document.getElementById('loginButton');
+loginButton.addEventListener('click', () => {
+    window.location.href = 'auth.html';
+});
+
         });
 
         // Newsletter Form
