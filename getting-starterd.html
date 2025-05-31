@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started with Python</title>
+    <style>
+       /* General Body Styles */
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f6f9;
+    color: #333;
+    box-sizing: border-box; /* Ensure consistent sizing across elements */
+}
+
+/* Header Styles */
+header {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 3px solid #34495e;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2em;
+    margin: 0;
+    font-weight: bold;
+    word-wrap: break-word; /* Prevent text overflow */
+}
+
+/* Navigation Styles */
+nav {
+    background-color: #34495e;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; /* Ensure consistent spacing */
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: color 0.3s ease, background 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #1abc9c;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Section Styles */
+section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 15px auto;
+    padding: 20px;
+    box-sizing: border-box;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Prevent content overflow */
+}
+
+section h2 {
+    color: #2c3e50;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 10px;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+footer .footer-links {
+    display: block;
+    padding: 0;
+    margin: 15px 0;
+    list-style-type: none; /* Remove bullets from the list */
+}
+
+footer .footer-links li {
+    margin: 10px 0; /* Add spacing between each link */
+    text-align: center;
+}
+
+footer .footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+footer .footer-links a:hover {
+    color: #1abc9c; /* Green hover effect */
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 3px; /* Reduce spacing on smaller screens */
+    }
+
+    nav ul li a {
+        font-size: 1em;
+        padding: 10px;
+        text-align: center;
+    }
+
+    section {
+        padding: 5px;
+    }
+
+    section h2 {
+        font-size: 1.5em;
+    }
+
+    footer {
+        font-size: 0.9em;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Getting Started with Python</h1>
+        <nav>
+            <ul>
+                <li><a href="#intro">Introduction</a></li>
+                <li><a href="#installation">Installation</a></li>
+                <li><a href="#syntax">Basic Syntax</a></li>
+                <li><a href="#examples">Examples</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#troubleshooting">Troubleshooting</a></li>
+                <li><a href="#best-practices">Best Practices</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <section id="intro" class="main-content">
+            <h2>Introduction to Python</h2>
+            <p>Python is a high-level, interpreted programming language known for its readability and versatility. Its design philosophy emphasizes code readability, which is achieved through its use of significant indentation. Python supports multiple programming paradigms, including procedural, object-oriented, and functional programming.</p>
+            <p>It was created by Guido van Rossum and first released in 1991. Python's syntax is clear and intuitive, making it an excellent choice for both beginners and experienced programmers. Python is widely used in web development, data analysis, machine learning, artificial intelligence, scientific computing, and more.</p>
+        </section>
+
+        <section id="installation" class="main-content">
+            <h2>Installing Python</h2>
+            <p>To begin programming in Python, you need to install it on your computer. Follow these steps:</p>
+            <ol>
+                <li>Go to the <a href="https://www.python.org/downloads/" target="_blank">official Python website</a> to download the latest version of Python.</li>
+                <li>Choose the installer suitable for your operating system (Windows, macOS, or Linux).</li>
+                <li>Run the installer and follow the instructions. Ensure that you check the box labeled "Add Python to PATH" to make Python accessible from the command line.</li>
+                <li>After installation, verify it by opening a terminal or command prompt and typing <code>python --version</code> or <code>python3 --version</code>.</li>
+            </ol>
+        </section>
+
+        <section id="syntax" class="main-content">
+            <h2>Basic Syntax</h2>
+            <p>Python syntax is designed to be clean and easy to read. Below are some fundamental concepts:</p>
+            
+            <h3>Variables</h3>
+            <p>Variables are used to store data values. You create a variable by assigning a value to a name:</p>
+            <pre><code>my_variable = 10</code></pre>
+
+            <h3>Data Types</h3>
+            <p>Python supports several data types. Here are a few examples:</p>
+            <pre><code>integer_var = 42
+float_var = 3.14
+string_var = "Hello, World!"
+list_var = [1, 2, 3, 4, 5]</code></pre>
+
+            <h3>Control Structures</h3>
+            <p>Control structures like if statements help you manage the flow of your program. Here’s an example:</p>
+            <pre><code>if integer_var &gt; 10:
+    print("The number is greater than 10")
+else:
+    print("The number is 10 or less")</code></pre>
+        </section>
+
+        <section id="examples" class="main-content">
+            <h2>Example Programs</h2>
+            <h3>Hello World</h3>
+            <p>Here is the classic "Hello, World!" program:</p>
+            <pre><code>print("Hello, World!")</code></pre>
+
+            <h3>Fibonacci Sequence</h3>
+            <p>This program generates the Fibonacci sequence up to a specified number:</p>
+            <pre><code>def fibonacci(n):
+    a, b = 0, 1
+    while a &lt; n:
+        print(a, end=' ')
+        a, b = b, a + b
+    print()
+
+fibonacci(100)</code></pre>
+
+            <h3>Basic Calculator</h3>
+            <p>This example shows a simple calculator performing basic arithmetic operations:</p>
+            <pre><code>def add(x, y):
+    return x + y
+
+def subtract(x, y):
+    return x - y
+
+def multiply(x, y):
+    return x * y
+
+def divide(x, y):
+    if y != 0:
+        return x / y
+    else:
+        return "Cannot divide by zero"
+
+print("Addition:", add(10, 5))
+print("Subtraction:", subtract(10, 5))
+print("Multiplication:", multiply(10, 5))
+print("Division:", divide(10, 5))</code></pre>
+        </section>
+
+        <section id="resources" class="main-content">
+            <h2>Additional Resources</h2>
+            <p>Explore these resources to deepen your understanding of Python:</p>
+            <ul>
+                <li><a href="https://docs.python.org/3/" target="_blank">Python Official Documentation</a></li>
+                <li><a href="https://www.learnpython.org/" target="_blank">Learn Python</a></li>
+                <li><a href="https://www.codecademy.com/learn/learn-python-3" target="_blank">Codecademy - Learn Python 3</a></li>
+                <li><a href="https://www.coursera.org/courses?query=python" target="_blank">Coursera - Python Courses</a></li>
+                <li><a href="https://www.udemy.com/topic/python/" target="_blank">Udemy - Python Courses</a></li>
+            </ul>
+        </section>
+
+        <section id="troubleshooting" class="main-content">
+            <h2>Troubleshooting Common Issues</h2>
+            <p>If you encounter issues while working with Python, here are some common problems and solutions:</p>
+            <ul>
+                <li><strong>Python Not Recognized:</strong> Ensure Python is correctly installed and added to your system's PATH. Reinstall Python if necessary.</li>
+                <li><strong>Syntax Errors:</strong> Check for typos and ensure your code adheres to Python’s indentation rules.</li>
+                <li><strong>Module Not Found:</strong> Install missing modules using <code>pip install module_name</code> or check if you’re using the correct Python environment.</li>
+            </ul>
+        </section>
+
+        <section id="best-practices" class="main-content">
+            <h2>Python Best Practices</h2>
+            <p>Adhere to these best practices to write clean, efficient, and maintainable Python code:</p>
+            <ul>
+                <li><strong>Follow PEP 8:</strong> Use the Python Enhancement Proposal (PEP) 8 style guide for consistent code formatting.</li>
+                <li><strong>Write Clear Comments:</strong> Document your code with comments to explain the purpose of complex logic.</li>
+                <li><strong>Use Version Control:</strong> Utilize version control systems like Git to manage and track changes to your code.</li>
+                <li><strong>Test Your Code:</strong> Implement unit tests to ensure your code functions as expected.</li>
+                <li><strong>Keep Learning:</strong> Stay updated with the latest Python features and best practices by reading documentation and engaging with the Python community.</li>
+            </ul>
+        </section>
+    </div>
+    <div class="links">
+    <h1>Related Pages</h1>
+    <div class="links">
+    <ul style="color:#f8f9fa">
+        <li><a href="index.html" style="color: blue;"><h3>Home</h3></a></li>
+        <li><a href="installation-guide.html" style="color: blue;"><h3>Installation Guide</h3></a></li>
+        <li><a href="programming-basics.html" style="color: blue"><h3>Programming Basics</h3></a></li>
+        <li><a href="advanced-python.html" style="color: blue"><h3>Advanced Python Concepts</h3></a></li>
+        <li><a href="libraries-frameworks.html" style="color:blue"><h3>Python libraries And Frameworks</h3></a></li>
+        <li><a href="project-ideas.html" style="color: blue;"><h3>Project Ideas</h3></a></li>
+    </ul>
+    </div>
+    <div clas="footer-links">
+<a href="https://www.youtube.com/@DARK-10-TanmaySingh">
+<h1>Youtube: DARK 10 </h1></a>
+    </div>
+    </div>
+    <footer>
+        <p>&copy;2024 Learn Python By Dark 10 | All rights reserved.</p>
+        <ul class="footer-links" style="color:#007bff;">
+            <li><a href="privacy-policy.html" style="color: white;">Privacy Policy</a></li>
+            <li><a href="terms-of-service.html" style="color: white;">Terms of Service</a></li>
+            <li><a href="contact.html" style="color: white;"s>Contact Us</a></li>
+        </ul>
+    </footer>
+</body>
+</html>
