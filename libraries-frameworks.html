@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Libraries and Frameworks</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f0f0;
+            color: #333;
+            scroll-behavior: smooth; /* Smooth scrolling */
+        }
+        header {
+            background: linear-gradient(135deg, #007BFF 0%, #0056b3 100%);
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+            position: relative;
+            width: 100%;
+            top: 0;
+            left: 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 1em;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #e0e0e0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding-top: 5em; /* Offset for fixed header */
+        }
+        .main-content {
+            padding: 2em 0;
+        }
+        .section {
+            background: #fff;
+            padding: 2em;
+            margin-bottom: 2em;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .section h2 {
+            margin-top: 0;
+            font-size: 2.2em;
+            color: #007BFF;
+            border-bottom: 2px solid #007BFF;
+            padding-bottom: 0.5em;
+        }
+        .section p {
+            font-size: 1.1em;
+        }
+        .section ul {
+            padding-left: 1.5em;
+        }
+        .section ul li {
+            margin-bottom: 1em;
+            line-height: 1.6;
+        }
+        .section pre {
+            background: #f4f4f4;
+            border-left: 4px solid #007BFF;
+            padding: 1em;
+            overflow-x: auto;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        .section pre code {
+            color: #333;
+        }
+        .cta {
+            background: #007BFF;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+            border-radius: 8px;
+            margin-top: 2em;
+            font-size: 1.2em;
+        }
+        .cta a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .contact-form {
+            background: #fff;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .contact-form h3 {
+            margin-top: 0;
+            font-size: 2em;
+            color: #007BFF;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1em;
+            margin-bottom: 1em;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        .contact-form button {
+            background: #007BFF;
+            color: #fff;
+            padding: 1em;
+            border: none;
+            border-radius: 4px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .contact-form button:hover {
+            background: #0056b3;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.2);
+        }
+        footer p {
+            margin: 0;
+        }
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2em;
+            right: 2em;
+            background: #007BFF;
+            color: #fff;
+            padding: 0.5em 1em;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5em;
+            cursor: pointer;
+            display: none; /* Hidden by default */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        .scroll-to-top:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+            <h1>Python Libraries and Frameworks</h1>
+    <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="#intro">Introduction</a></li>
+                    <li><a href="#libraries">Libraries</a></li>
+                    <li><a href="#frameworks">Frameworks</a></li>
+                    <li><a href="#examples">Code Examples</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <div class="main-content">
+            <section id="intro" class="section">
+                <h2>Introduction</h2>
+                <p>Python's vast ecosystem of libraries and frameworks empowers developers to tackle a wide array of tasks with ease. Whether you're engaged in data analysis, web development, or machine learning, Python offers tools that can significantly boost your productivity and effectiveness.</p>
+            </section>
+
+            <section id="libraries" class="section">
+                <h2>Popular Python Libraries</h2>
+                <p>Libraries are essential for performing specific tasks without needing to reinvent the wheel. Here are some of the most influential Python libraries:</p>
+                <ul>
+                    <li><strong>NumPy:</strong> A cornerstone of numerical computing in Python, providing support for arrays, matrices, and a variety of mathematical functions. It's crucial for scientific computing and data analysis.</li>
+                    <li><strong>Pandas:</strong> Designed for data manipulation and analysis, Pandas introduces DataFrames, which are particularly effective for handling structured data and time series.</li>
+                    <li><strong>Requests:</strong> A user-friendly HTTP library that simplifies making requests to web services and APIs, handling things like sessions and cookies with ease.</li>
+                    <li><strong>Matplotlib:</strong> A versatile plotting library for creating a range of visualizations, from simple line plots to complex heatmaps.</li>
+                    <li><strong>BeautifulSoup:</strong> Facilitates web scraping by parsing HTML and XML documents, making it easier to extract data from web pages.</li>
+                </ul>
+            </section>
+
+            <section id="frameworks" class="section">
+                <h2>Popular Python Frameworks</h2>
+                <p>Frameworks provide a structured foundation for building applications. Here are some of the leading Python frameworks:</p>
+                <ul>
+                    <li><strong>Django:</strong> A high-level web framework that encourages rapid development and pragmatic design. It includes built-in features such as an ORM, authentication, and an admin interface.</li>
+                    <li><strong>Flask:</strong> A micro web framework that provides the essentials for building web applications. It offers flexibility, allowing developers to select additional components as needed.</li>
+                    <li><strong>FastAPI:</strong> Known for its speed and efficiency, FastAPI is a modern framework for building APIs with Python 3.7+ based on standard type hints and asynchronous programming.</li>
+                    <li><strong>Pyramid:</strong> A highly flexible framework that can be used for small applications or scaled up to larger projects. It offers extensive customization options.</li>
+                </ul>
+            </section>
+
+            <section id="examples" class="section">
+                <h2>Code Examples</h2>
+                <p>Below are some basic examples demonstrating the usage of popular Python libraries and frameworks:</p>
+                
+                <h3>NumPy Example</h3>
+                <pre><code>import numpy as np
+
+# Create a 1D array
+array = np.array([1, 2, 3, 4, 5])
+print("Array:", array)
+
+# Compute the mean of the array
+mean = np.mean(array)
+print("Mean:", mean)
+</code></pre>
+
+                <h3>Flask Example</h3>
+                <pre><code>from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Hello, World!"
+
+if __name__ == '__main__':
+    app.run(debug=True)
+</code></pre>
+
+                <h3>Requests Example</h3>
+                <pre><code>import requests
+
+response = requests.get('https://api.github.com')
+print("Status Code:", response.status_code)
+print("Response JSON:", response.json())
+</code></pre>
+            </section>
+
+            <section id="resources" class="section">
+                <h2>Further Resources</h2>
+                <p>For additional information on Python libraries and frameworks, explore these valuable resources:</p>
+                <ul>
+                    <li><a href="https://docs.python.org/3/library/" target="_blank">Python Standard Library Documentation</a></li>
+                    <li><a href="https://pypi.org/" target="_blank">Python Package Index (PyPI)</a></li>
+                    <li><a href="https://realpython.com/" target="_blank">Real Python - Tutorials and Articles</a></li>
+                    <li><a href="https://www.fullstackpython.com/" target="_blank">Full Stack Python - Resources and Guides</a></li>
+                    <li><a href="https://www.djangoproject.com/" target="_blank">Django Official Site</a></li>
+                    <li><a href="https://flask.palletsprojects.com/" target="_blank">Flask Official Site</a></li>
+                    <li><a href="https://fastapi.tiangolo.com/" target="_blank">FastAPI Official Site</a></li>
+                    <li><a href="https://trypyramid.com/" target="_blank">Pyramid Official Site</a></li>
+                </ul>
+                <div class="cta">
+                    <p>Want to explore more? Check out our <a href="#libraries">Library</a> and <a href="#frameworks">Framework</a> sections for detailed guides and tutorials!</p>
+                </div>
+            </section>
+
+            <section id="contact" class="section">
+                <div class="contact-form">
+                    <h3>Contact Us</h3>
+                    <p>If you have any questions or need further information, feel free to reach out to us:</p>
+                    <form id="contact-form" action="https://formspree.io/f/xwpedjdn" method="POST">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+    
+            </section>
+        </div>
+    </div>
+
+    <button class="scroll-to-top" id="scrollToTopBtn">↑</button>
+    <div class="links">
+    <h1>Related Pages</h1>
+    <ul>
+        <li><a href="index.html" style="color: blue;"><h3>Home</h3></a></li>
+        <li><a href="installation-guide.html" style="color: blue;"><h3>Installation Guide</h3></a></li>
+        <li><a href="getting-started.html" style="color: blue;"><h3>Getting Started With Python</h3></a></li>
+        <li><a href="programming-basics.html" style="color: blue"><h3>Programming Basics</h3></a></li>
+        <li><a href="advanced-python.html" style="color: blue"><h3>Advanced Python Concepts</h3></a></li>
+        <li><a href="project-ideas.html" style="color: blue;"><h3>Project Ideas</h3></a></li>
+    </ul>
+    </div>
+    <div clas="footer-links">
+<a href="https://www.youtube.com/@DARK-10-TanmaySingh">
+<h1>Youtube: DARK 10 </h1></a>
+    </div>
+    <footer>
+        <p>&copy;2024 Learn Python By Dark 10 | All rights reserved.</p>
+            <ul class="footer-links" style="color:#333">
+                <li><a href="privacy-policy.html" style="color: white;">Privacy Policy</a></li>
+                <li><a href="terms-of-service.html" style="color: white;">Terms of Service</a></li>
+                <li><a href="contact.html" style="color: white;">Contact Us</a></li>
+            </ul>
+    </footer>
+
+    <script>
+        // JavaScript for sticky navigation
+        window.addEventListener('scroll', function() {
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+            if (window.scrollY > 200) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+
+        // JavaScript for scroll to top button
+        document.getElementById('scrollToTopBtn').addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // JavaScript for form submission
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+        });
+    </script>
+</body>
+</html>
+
