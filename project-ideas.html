@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Project Ideas - Comprehensive Guide</title>
+    <style>
+      /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    background-color: #121212;
+    background-image: url('python-logo.png');
+    background-size: cover;
+    background-position: center;
+    overflow-x: hidden;
+}
+
+/* Header Styles */
+header {
+    background-color: rgba(18, 18, 18, 0.9);
+    color: #fff;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+    font-size: 3em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #00FF88; /* AI neon green */
+}
+
+/* Main Section Styles */
+main {
+    padding: 30px;
+    max-width: 1200px;
+    margin: 50px auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 255, 136, 0.15);
+    backdrop-filter: blur(10px); /* Futuristic blurred background effect */
+}
+
+/* Introduction Section Styles */
+section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #00FF88; /* AI neon green */
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+section p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    color: #ccc;
+    text-align: justify;
+}
+
+/* Search Input Styles */
+input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2em;
+    border: 1px solid #444;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    background-color: #222;
+    color: #fff;
+    transition: border 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border: 1px solid #00FF88; /* Focus border with neon green */
+}
+
+/* Project Ideas List Styles */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.project-item {
+    background-color: #222;
+    border: 1px solid #333;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    padding: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 255, 136, 0.2);
+}
+
+.project-item:hover {
+    transform: scale(1.05); /* Hover effect for futuristic feel */
+    box-shadow: 0 6px 15px rgba(0, 255, 136, 0.3);
+}
+
+.project-item h3 {
+    font-size: 1.8em;
+    color: #00FF88; /* AI neon green */
+    margin-bottom: 10px;
+}
+
+.project-item p {
+    font-size: 1.2em;
+    color: #ccc;
+}
+
+.project-item .code-block {
+    display: none;
+    transition: max-height 0.3s ease-out;
+    overflow: hidden;
+    background-color: #111;
+    color: #0f0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 255, 136, 0.2);
+}
+
+.project-item .code-block.show {
+    display: block;
+    max-height: 10000px; /* Adjust based on content */
+}
+
+pre, code {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow: auto;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #121212;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
+}
+
+footer a {
+    color: #00FF88;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 1rem;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #fff; /* Hover effect: neon green turns white */
+}
+
+/* Advanced ChatGPTian Effects */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #00FF88, 0 0 10px #00FF88, 0 0 20px #00FF88, 0 0 40px #00FF88;
+    }
+    50% {
+        text-shadow: 0 0 10px #00FF88, 0 0 20px #00FF88, 0 0 40px #00FF88, 0 0 80px #00FF88;
+    }
+    100% {
+        text-shadow: 0 0 5px #00FF88, 0 0 10px #00FF88, 0 0 20px #00FF88, 0 0 40px #00FF88;
+    }
+}
+
+header h1 {
+    animation: glow 1.5s infinite alternate;
+}
+
+/* Mobile Styling */
+@media (max-width: 768px) {
+    main {
+        padding: 20px;
+    }
+
+    .project-item {
+        padding: 15px;
+    }
+
+    input[type="text"] {
+        padding: 12px;
+    }
+}
+
+    </style>
+    <script>
+        function toggleCode(id) {
+            const codeElement = document.getElementById(id);
+            codeElement.classList.toggle('show');
+        }
+
+        function filterProjects() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const projectItems = document.querySelectorAll('.project-item');
+            projectItems.forEach(item => {
+                const title = item.querySelector('h3').innerText.toLowerCase();
+                if (title.includes(searchInput)) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Python Project Ideas</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Introduction</h2>
+            <p>This page presents a wide range of Python project ideas to enhance your skills. Each project includes a brief description to help you get started.</p>
+            <input type="text" id="searchInput" onkeyup="filterProjects()" placeholder="Search project ideas...">
+        </section>
+        <section>
+            <h2>Project Ideas</h2>
+            <ul>
+                <!-- Project 1 -->
+<li class="project-item">
+<h3 onclick="toggleCode('code1')">1. Simple Calculator</h3>
+<p>A basic calculator that performs arithmetic operations such as addition, subtraction, multiplication, and division.</p>
+<div id="code1" class="code-block">
+<pre>
+# Simple Calculator
+
+def calculator():
+    print("Select operation:")
+    print("1. Add")
+    print("2. Subtract")
+    print("3. Multiply")
+    print("4. Divide")
+
+    choice = input("Enter choice (1/2/3/4): ")
+
+    num1 = float(input("Enter first number: "))
+    num2 = float(input("Enter second number: "))
+
+    if choice == '1':
+        print(f"Result: {num1 + num2}")
+    elif choice == '2':
+        print(f"Result: {num1 - num2}")
+    elif choice == '3':
+        print(f"Result: {num1 * num2}")
+    elif choice == '4':
+        if num2 != 0:
+            print(f"Result: {num1 / num2}")
+        else:
+            print("Error! Division by zero.")
+    else:
+        print("Invalid input")
+
+calculator()
+</pre>
+</div>
+</li>
+
+                <!-- Project 2 -->
+                <li class="project-item">
+                    <h3 onclick="toggleCode('code2')">2. To-Do List App</h3>
+                    <p>A command-line or GUI application for managing tasks, allowing users to add, delete, and view tasks.</p>
+                    <div id="code2" class="code-block">
+                    <pre>
+# To-Do List App
+
+tasks = []
+
+def add_task(task):
+    tasks.append(task)
+    print(f"Task '{task}' added.")
+
+def remove_task(task):
+    if task in tasks:
+        tasks.remove(task)
+        print(f"Task '{task}' removed.")
+    else:
+        print(f"Task '{task}' not found.")
+
+def show_tasks():
+    if tasks:
+        print("Tasks:")
+        for i, task in enumerate(tasks, start=1):
+            print(f"{i}. {task}")
+    else:
+        print("No tasks available.")
+
+while True:
+    print("\n1. Add Task")
+    print("2. Remove Task")
+    print("3. Show Tasks")
+    print("4. Exit")
+    choice = input("Enter choice: ")
+
+    if choice == '1':
+        task = input("Enter task: ")
+        add_task(task)
+    elif choice == '2':
+        task = input("Enter tas.k to remove: ")
+        remove_task(task)
+    elif choice == '3':
+        show_tasks()
+    elif choice == '4':
+        break
+    else:
+        print("Invalid choice. Please enter a number between 1 and 4.")
+                </pre>
+                </div>
+                </li>
+
+                <!-- Project 3 -->
+                    <li class="project-item">
+                    <h3 onclick="toggleCode('code3')">3. Weather App</h3>
+                    <p>An app that fetches and displays weather information based on user input, utilizing APIs to get real-time data.</p>
+                    <div id="code3" class="code-block">
+                    <pre>
+# Weather App (Requires requests module)
+
+import requests
+
+def get_weather(city):
+    api_key = 'your_api_key_here'
+    base_url = 'http://api.openweathermap.org/data/2.5/weather?'
+    complete_url = f"{base_url}q={city}&appid={api_key}"
+
+    response = requests.get(complete_url)
+    data = response.json()
+
+    if data['cod'] == '404':
+        print("City not found.")
+    else:
+        main = data['main']
+        weather = data['weather'][0]
+        temperature = main['temp'] - 273.15  # Convert from Kelvin to Celsius
+        description = weather['description']
+        print(f"Temperature: {temperature:.2f}°C")
+        print(f"Weather: {description.capitalize()}")
+
+city = input("Enter city name: ")
+get_weather(city)
+                        </pre>
+                    </div>
+                    </li>
+
+                <!-- Project 4 -->
+                <li class="project-item">
+                    <h3 onclick="toggleCode('code4')">4. Password Generator</h3>
+                    <p>A script that generates strong passwords with customizable length and character types.</p>
+                    <div id="code4" class="code-block">
+                        <pre>
+# Password Generator (Requires random module)
+
+import random
+import string
+
+def generate_password(length=12):
+    characters = string.ascii_letters + string.digits + string.punctuation
+    password = ''.join(random.choice(characters) for i in range(length))
+    return password
+
+length = int(input("Enter password length: "))
+print("Generated password:", generate_password(length))
+                        </pre>
+                    </div>
+                </li>
+
+                <!-- Project 5 -->
+                <li class="project-item">
+                    <h3 onclick="toggleCode('code5')">5. Web Scraper</h3>
+                    <p>A script that scrapes and extracts data from a website using BeautifulSoup and Requests modules.</p>
+                    <div id="code5" class="code-block">
+                        <pre>
+# Web Scraper (Requires requests and BeautifulSoup modules)
+
+import requests
+from bs4 import BeautifulSoup
+
+def scrape_website(url):
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+
+    # Example: Extract all paragraph texts
+    paragraphs = soup.find_all('p')
+    for para in paragraphs:
+        print(para.get_text())
+
+url = input("Enter website URL: ")
+scrape_website(url)
+                        </pre>
+                    </div>
+                </li>
+
+                <!-- Project 6 -->
+                <li class="project-item">
+                    <h3 onclick="toggleCode('code6')">6. Quiz App</h3>
+                    <p>A console-based or GUI application that quizzes users on various topics, keeping track of their scores and providing feedback.</p>
+                    <div id="code6" class="code-block">
+                        <pre>
+# Quiz App
+
+def ask_question(question, answer):
+    user_answer = input(question + " ")
+    if user_answer.lower() == answer.lower():
+        print("Correct!")
+        return True
+    else:
+        print("Incorrect. The correct answer was:", answer)
+        return False
+
+score = 0
+
+print("Welcome to the Quiz App!")
+
+score += ask_question("What is the capital of France?", "Paris")
+score += ask_question("What is 2 + 2?", "4")
+score += ask_question("Who wrote 'To Kill a Mockingbird'?", "Harper Lee")
+
+print(f"Your score: {score}/{3}")
+                        </pre>
+                    </div>
+                </li>
+
+                <!-- Project 7 -->
+                <li class="project-item">
+                    <h3 onclick="toggleCode('code7')">7. File Organizer</h3>
+                    <p>A script to automatically organize files in a directory into subdirectories based on file types or extensions.</p>
+                    <div id="code7" class="code-block">
+                        <pre>
+# File Organizer (Requires os module)
+
+import os
+import shutil
+
+def organize_files(directory):
+    for filename in os.listdir(directory):
+        file_extension = filename.split('.')[-1]
+        target_directory = os.path.join(directory, file_extension)
+
+        if not os.path.exists(target_directory):
+            os.makedirs(target_directory)
+
+        source = os.path.join(directory, filename)
+        destination = os.path.join(target_directory, filename)
+
+        shutil.move(source, destination)
+
+directory = input("Enter directory path to organize: ")
+organize_files(directory)
+                        </pre>
+                    </div>
+                </li>
+
+                <!-- Project 8 -->
+                <li class="project-item">
+                    <h3 onclick="toggleCode('code8')">8. Expense Tracker</h3>
+                    <p>An application to track and manage personal expenses, allowing users to add, remove, and review their expenses.</p>
+                    <div id="code8" class="code-block">
+                        <pre>
+# Expense Tracker
+
+expenses = []
+
+def add_expense(amount, description):
+    expenses.append({'amount': amount, 'description': description})
+    print("Expense added.")
+
+def remove_expense(index):
+    if 0 <= index < len(expenses):
+        removed = expenses.pop(index)
+        print(f"Removed expense: {removed}")
+    else:
+        print("Invalid index.")
+
+def show_expenses():
+    if expenses:
+        total = sum(expense['amount'] for expense in expenses)
+        print(f"Total expenses: ${total:.2f}")
+        for i, expense in enumerate(expenses):
+            print(f"{i}. ${expense['amount']:.2f} - {expense['description']}")
+    else:
+        print("No expenses recorded.")
+
+while True:
+    print("\n1. Add Expense")
+    print("2. Remove Expense")
+    print("3. Show Expenses")
+    print("4. Exit")
+    choice = input("Enter choice: ")
+
+    if choice == '1':
+        amount = float(input("Enter amount: "))
+        description = input("Enter description: ")
+        add_expense(amount, description)
+    elif choice == '2':
+        index = int(input("Enter expense index to remove: "))
+        remove_expense(index)
+    elif choice == '3':
+        show_expenses()
+    elif choice == '4':
+        break
+    else:
+        print("Invalid choice. Please enter a number between 1 and 4.")
+                        </pre>
+                    </div>
+                </li>
+
+                <!-- Project 9 -->
+                <li class="project-item">
+                    <h3 onclick="toggleCode('code9')">9. Currency Converter</h3>
+                    <p>A tool to convert between different currencies using current exchange rates.</p>
+                    <div id="code9" class="code-block">
+                        <pre>
+# Currency Converter (Requires requests module)
+
+import requests
+
+def convert_currency(amount, from_currency, to_currency):
+    api_key = 'your_api_key_here'
+    base_url = 'https://api.exchangerate-api.com/v4/latest/'
+    complete_url = f"{base_url}{from_currency}"
+
+    response = requests.get(complete_url)
+    data = response.json()
+    rates = data['rates']
+
+    if to_currency in rates:
+        converted_amount = amount * rates[to_currency]
+        return converted_amount
+    else:
+        return "Currency not found."
+
+amount = float(input("Enter amount: "))
+from_currency = input("From currency (e.g., USD): ").upper()
+to_currency = input("To currency (e.g., EUR): ").upper()
+converted_amount = convert_currency(amount, from_currency, to_currency)
+print(f"Converted amount: {converted_amount}")
+                        </pre>
+                    </div>
+                </li>
+
+                <!-- Project 10 -->
+                <li class="project-item">
+                    <h3 onclick="toggleCode('code10')">10. Sudoku Solver</h3>
+                    <p>A program that solves Sudoku puzzles using algorithms.</p>
+                    <div id="code10" class="code-block">
+                        <pre>
+# Sudoku Solver
+
+def print_board(board):
+    for row in board:
+        print(" ".join(str(num) if num != 0 else '.' for num in row))
+
+def is_valid(board, row, col, num):
+    for i in range(9):
+        if board[row][i] == num or board[i][col] == num:
+            return False
+    start_row, start_col = 3 * (row // 3), 3 * (col // 3)
+    for i in range(start_row, start_row + 3):
+        for j in range(start_col, start_col + 3):
+            if board[i][j] == num:
+                return False
+    return True
+
+def solve_sudoku(board):
+    for row in range(9):
+        for col in range(9):
+            if board[row][col] == 0:
+                for num in range(1, 10):
+                    if is_valid(board, row, col, num):
+                        board[row][col] = num
+                        if solve_sudoku(board):
+                            return True
+                        board[row][col] = 0
+                return False
+    return True
+
+# Example Sudoku board (0 represents empty cells)
+board = [
+    [5, 3, 0, 0, 7, 0, 0, 0, 0],
+    [6, 0, 0, 1, 9, 5, 0, 0, 0],
+    [0, 9, 8, 0, 0, 0, 0, 6, 0],
+    [8, 0, 0, 0, 6, 0, 0, 0, 3],
+    [4, 0, 0, 8, 0, 3, 0, 0, 1],
+    [7, 0, 0, 0, 2, 0, 0, 0, 6],
+    [0, 6, 0, 0, 0, 0, 2, 8, 0],
+    [0, 0, 0, 4, 1, 9, 0, 0, 5],
+    [0, 0, 0, 0, 8, 0, 0, 7, 9]
+]
+
+if solve_sudoku(board):
+    print_board(board)
+else:
+    print("No solution exists")
+                        </pre>
+                    </div>
+                </li>
+
+                <!-- Project 11 -->
+                <li class="project-item">
+                    <h3 onclick="toggleCode('code11')">11. Tic-Tac-Toe Game</h3>
+                    <p>A simple implementation of the classic Tic-Tac-Toe game for two players.</p>
+                    <div id="code11" class="code-block">
+                        <pre>
+# Tic-Tac-Toe Game
+
+def print_board(board):
+    for row in board:
+        print(" | ".join(row))
+        print("-" * 5)
+
+def check_winner(board, mark):
+    for row in board:
+        if all(cell == mark for cell in row):
+            return True
+    for col in range(3):
+        if all(board[row][col] == mark for row in range(3)):
+            return True
+    if all(board[i][i] == mark for i in range(3)) or all(board[i][2-i] == mark for i in range(3)):
+        return True
+    return False
+
+def tic_tac_toe():
+    board = [[' ']*3 for _ in range(3)]
+    current_player = 'X'
+    for _ in range(9):
+        print_board(board)
+        row = int(input(f"Player {current_player}, enter row (0-2): "))
+        col = int(input(f"Player {current_player}, enter column (0-2): "))
+        if board[row][col] == ' ':
+            board[row][col] = current_player
+            if check_winner(board, current_player):
+                print_board(board)
+                print(f"Player {current_player} wins!")
+                return
+            current_player = 'O' if current_player == 'X' else 'X'
+        else:
+            print("Cell already taken, try again.")
+    print_board(board)
+    print("It's a draw!")
+
+tic_tac_toe()
+                        </pre>
+                    </div>
+                </li>
+
+                <!-- Project 12 -->
+                <li class="project-item">
+                    <h3 onclick="toggleCode('code12')">12. Chatbot</h3>
+                    <p>A basic chatbot using simple rule-based logic or machine learning.</p>
+                    <div id="code12" class="code-block">
+                        <pre>
+# Basic Chatbot
+
+def get_response(user_input):
+    responses = {
+        "hello": "Hi there!",
+        "how are you": "I'm doing well, thank you!",
+        "bye": "Goodbye!",
+    }
+    return responses.get(user_input.lower(), "I don't understand that.")
+
+while True:
+    user_input = input("You: ")
+    if user_input.lower() == 'exit':
+        print("Chatbot: Goodbye!")
+        break
+    response = get_response(user_input)
+    print(f"Chatbot: {response}")
+                        </pre>
+                    </div>
+                </li>
+
+                <!-- Project 13 -->
+                <li class="project-item">
+                    <h3 onclick="toggleCode('code13')">13. Library Management System</h3>
+                    <p>An application to manage book checkouts and returns in a library.</p>
+                    <div id="code13" class="code-block">
+                        <pre>
+# Library Management System
+
+library = {
+    'The Great Gatsby': True,
+    '1984': True,
+    'To Kill a Mockingbird': True
+}
+
+def checkout_book(book_title):
+    if library.get(book_title):
+        library[book_title] = False
+        print(f"You have checked out '{book_title}'.")
+    else:
+        print(f"'{book_title}' is not available or does not exist.")
+
+def return_book(book_title):
+    if book_title in library:
+        library[book_title] = True
+        print(f"'{book_title}' has been returned.")
+    else:
+        print(f"'{book_title}' does not exist in the library.")
+
+def show_books():
+    for book, available in library.items():
+        status = 'Available' if available else 'Checked Out'
+        print(f"{book}: {status}")
+
+while True:
+    print("\n1. Checkout Book")
+    print("2. Return Book")
+    print("3. Show Books")
+    print("4. Exit")
+    choice = input("Enter choice: ")
+
+    if choice == '1':
+        title = input("Enter book title to checkout: ")
+        checkout_book(title)
+    elif choice == '2':
+        title = input("Enter book title to return: ")
+        return_book(title)
+    elif choice == '3':
+        show_books()
+    elif choice == '4':
+        break
+    else:
+        print("Invalid choice. Please enter a number between 1 and 4.")
+                        </pre>
+                    </div>
+                </li>
+
+                <!-- Project 14 -->
+                <li class="project-item">
+                    <h3 onclick="toggleCode('code14')">14. Alarm Clock</h3>
+                    <p>A program that allows users to set alarms and notifies them at the specified time.</p>
+                    <div id="code14" class="code-block">
+                        <pre>
+# Alarm Clock
+
+import time
+import threading
+
+def set_alarm(alarm_time):
+    while True:
+        current_time = time.strftime('%H:%M:%S')
+        if current_time == alarm_time:
+            print("Alarm ringing!")
+            break
+        time.sleep(1)
+
+alarm_time = input("Enter alarm time (HH:MM:SS): ")
+alarm_thread = threading.Thread(target=set_alarm, args=(alarm_time,))
+alarm_thread.start()
+                        </pre>
+                    </div>
+                </li>
+
+                <!-- Project 15 -->
+                <li class="project-item">
+                    <h3 onclick="toggleCode('code15')">15. Text-based Adventure Game</h3>
+                    <p>A simple text-based adventure game with choices and story progression based on user input.</p>
+                    <div id="code15" class="code-block">
+                        <pre>
+# Text-based Adventure Game
+
+def start_game():
+    print("You are in a dark room. You can go left or right.")
+    choice = input("Which way do you want to go? (left/right): ")
+    if choice.lower() == 'left':
+        print("You encounter a friendly dragon. You win!")
+    elif choice.lower() == 'right':
+        print("You fall into a pit. Game over.")
+    else:
+        print("Invalid choice. The game ends.")
+
+start_game()
+                        </pre>
+                    </div>
+                </li>
+
+            </ul>
+        </section>
+    </main>
+    <div style="text-align:center;">
+    <h1>Related Pages</h1>
+    <ul>
+        <li><a href="index.html" style="color:grey"><h3>Home</h3></a></li>
+        <li><a href="installation-guide.html" style="color:grey"><h3>Installation Guide</h3></a></li>
+        <li><a href="getting-started.html" style="color:grey"><h3>Getting Started With Python</h3></a></li>
+        <li><a href="programming-basics.html" style="color:grey"><h3>Programming Basics</h3></a></li>
+        <li><a href="advanced-python.html" style="color:grey"><h3>Advanced Python Concepts</h3></a></li>
+        <li><a href="libraries-frameworks.html" style="color:grey"><h3>Python Libraries and Framework</h3></a></li>
+    </ul>
+    </div>
+    </div>
+    <div clas="footer-links">
+<a href="https://www.youtube.com/@DARK-10-TanmaySingh" style="color:grey">
+<h1>Youtube: DARK 10 </h1></a>
+    </div>
+    <footer>
+        <p>&copy; 2024 Learn Python By Dark 10 | All rights reserved.</p>
+            <ul class="footer-links" style="color:#333">
+                <li><a href="privacy-policy.html" style="color: white;">Privacy Policy</a></li>
+                <li><a href="terms-of-service.html" style="color: white;">Terms of Service</a></li>
+                <li><a href="contact.html" style="color: white;">Contact Us</a></li>
+            </ul>
+    </footer>
+</body>
+</html>
