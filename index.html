@@ -1,0 +1,1979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Python By Dark 10</title>
+    <link rel="website icon" type="png" href="./unnamed.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+    --primary-color: #7d5a50;
+    --secondary-color: #ffaa00;
+    --accent-color: #ff6b6b;
+    --light-color: #ffedda;
+    --dark-color: #333;
+    --bg-light: #f8f9fa;
+    --bg-dark: #343a40;
+    --success-color: #28a745;
+    --info-color: #17a2b8;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --transition: all 0.3s ease;
+    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 10px var(--secondary-color); }
+    100% { text-shadow: 0 0 20px var(--secondary-color), 0 0 30px var(--secondary-color); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-light);
+    color: var(--dark-color);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+header {
+    background: linear-gradient(135deg, var(--primary-color), #5d4037);
+    color: var(--light-color);
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: var(--box-shadow);
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+.header-scrolled {
+    padding: 0.5rem 0;
+    background: rgba(125, 90, 80, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    background-image: linear-gradient(to right, var(--secondary-color), #ff8c00);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: fadeIn 1s ease-out, glow 2s infinite alternate;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav ul li a {
+    color: var(--light-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+nav ul li a:hover {
+    color: var(--secondary-color);
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--secondary-color);
+    transition: var(--transition);
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+.login-button {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.login-button:hover {
+    background: #e89f00;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 170, 0, 0.3);
+}
+
+.login-button i {
+    font-size: 1rem;
+}
+
+main {
+    margin-top: 80px;
+}
+
+.section {
+    padding: 5rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.section:nth-of-type(odd) {
+    background: white;
+}
+
+.section:nth-of-type(even) {
+    background: var(--bg-light);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 3px;
+    bottom: -10px;
+    left: 20%;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 10px;
+    background: #e0e0e0;
+    border-radius: 5px;
+    margin: 2rem 0;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+    border-radius: 5px;
+    transition: width 0.5s ease;
+}
+
+ol, ul {
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+.code-example {
+    background-color: #fff8e1;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.code-example:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.code-example::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--secondary-color), var(--accent-color));
+}
+
+.code-title {
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.code-title i {
+    color: var(--secondary-color);
+}
+
+pre {
+    background-color: #2d2d2d;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    overflow-x: auto;
+    color: #f8f8f2;
+    font-family: 'Courier New', Courier, monospace;
+    position: relative;
+}
+
+pre::before {
+    content: 'python';
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.8rem;
+    border-bottom-left-radius: var(--border-radius);
+}
+
+.faq-container {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+}
+
+.faq-item {
+    border-bottom: 1px solid #eee;
+    transition: var(--transition);
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-question {
+    cursor: pointer;
+    padding: 1.5rem;
+    background: white;
+    color: var(--primary-color);
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.faq-question:hover {
+    background: #f9f9f9;
+}
+
+.faq-question::after {
+    content: '\f078';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    transition: var(--transition);
+}
+
+.faq-question.active::after {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 1.5rem;
+    background: #f9f9f9;
+}
+
+.faq-answer.show {
+    max-height: 500px;
+    padding: 1.5rem;
+}
+
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.resource-card {
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.resource-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.resource-img {
+    height: 150px;
+    overflow: hidden;
+}
+
+.resource-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.resource-card:hover .resource-img img {
+    transform: scale(1.1);
+}
+
+.resource-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+}
+
+.resource-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.resource-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--secondary-color);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.resource-link:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.team-section {
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.team-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.team-member {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    max-width: 350px;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+}
+
+.team-member::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+}
+
+.member-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    overflow: hidden;
+    border: 5px solid #f1f1f1;
+}
+
+.member-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.member-name {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.member-role {
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.member-bio {
+    margin-bottom: 1.5rem;
+    color: #666;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: var(--primary-color);
+    background: #f1f1f1;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background: var(--secondary-color);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.company-info {
+    background: var(--primary-color);
+    color: white;
+    padding: 3rem 2rem;
+    border-radius: var(--border-radius);
+    margin: 3rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.company-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.company-info .container {
+    position: relative;
+    z-index: 1;
+}
+
+.company-info h2 {
+    color: white;
+}
+
+.company-info h2::after {
+    background: white;
+}
+
+.company-stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 3rem 0;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 1rem;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    color: white;
+}
+
+footer {
+    background: var(--bg-dark);
+    color: white;
+    padding: 3rem 0 1rem;
+    position: relative;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
+}
+
+.footer-logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background-image: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
+
+.footer-about p {
+    margin-bottom: 1rem;
+    color: #ddd;
+}
+
+.footer-links h3 {
+    color: white;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+    color: #ddd;
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: var(--secondary-color);
+    transform: translateX(5px);
+}
+
+.footer-contact p {
+    margin-bottom: 1rem;
+    color: #ddd;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-contact i {
+    color: var(--secondary-color);
+    width: 20px;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background: var(--secondary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 999;
+}
+
+.back-to-top.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+/* Quiz Styles */
+.quiz-question {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+    box-shadow: var(--box-shadow);
+}
+
+.quiz-question p {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.quiz-question label {
+    display: block;
+    margin-bottom: 0.8rem;
+    cursor: pointer;
+    padding-left: 1.8rem;
+    position: relative;
+    color: #555;
+}
+
+.quiz-question input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.radio-custom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1.2rem;
+    width: 1.2rem;
+    background-color: #eee;
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.quiz-question label:hover .radio-custom {
+    background-color: #ddd;
+}
+
+.quiz-question input[type="radio"]:checked ~ .radio-custom {
+    background-color: var(--secondary-color);
+}
+
+.radio-custom::after {
+    content: "";
+    position: absolute;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background: white;
+}
+
+.quiz-question input[type="radio"]:checked ~ .radio-custom::after {
+    display: block;
+}
+
+.quiz-result {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin-top: 1.5rem;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .header-container {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    nav ul {
+        gap: 1rem;
+    }
+    
+    .section {
+        padding: 3rem 1rem;
+    }
+    
+    .resource-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    nav {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 80%;
+        height: calc(100vh - 80px);
+        background: var(--primary-color);
+        transition: var(--transition);
+        z-index: 999;
+    }
+
+    nav.active {
+        left: 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 2rem;
+        height: 100%;
+    }
+
+    nav ul li {
+        margin: 1rem 0;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    .team-member {
+        max-width: 100%;
+    }
+    
+    .company-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .login-button {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .back-to-top {
+        width: 40px;
+        height: 40px;
+        bottom: 1rem;
+        right: 1rem;
+    }
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+
+body.dark-mode .section:nth-of-type(odd) {
+    background: #1e1e1e;
+    color: #f1f1f1;
+}
+
+body.dark-mode .section:nth-of-type(even) {
+    background: #252525;
+}
+
+body.dark-mode .code-example {
+    background-color: #2d2d2d;
+}
+
+body.dark-mode .feature-item,
+body.dark-mode .faq-container,
+body.dark-mode .quiz-question {
+    background: #2d2d2d;
+    color: #f1f1f1;
+}
+
+/* Interactive Code Playground */
+.code-playground {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+@media (min-width: 992px) {
+    .code-playground {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.editor-container {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+
+.editor-header {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.editor-title {
+    font-weight: 600;
+}
+
+.run-button {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.run-button:hover {
+    background: #e89f00;
+}
+
+.code-editor {
+    width: 100%;
+    min-height: 200px;
+    padding: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    border: none;
+    resize: vertical;
+    background: #2d2d2d;
+    color: #f8f8f2;
+}
+
+.output-container {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+
+.output-header {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+}
+
+.code-output {
+    padding: 1rem;
+    min-height: 200px;
+    background: white;
+    font-family: 'Courier New', Courier, monospace;
+    white-space: pre-wrap;
+}
+
+.playground-tips {
+    margin-top: 2rem;
+}
+
+.example-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.example-btn {
+    background: var(--bg-light);
+    border: 1px solid #ddd;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.example-btn:hover {
+    background: var(--secondary-color);
+    color: white;
+}
+
+/* Achievements */
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.achievement-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.achievement-card:hover {
+    transform: translateY(-5px);
+}
+
+.achievement-icon {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem;
+}
+
+.achievement-icon i {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    position: relative;
+    z-index: 1;
+}
+
+.progress-circle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.percent-text {
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+
+/* Newsletter */
+.newsletter-box {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+}
+
+.newsletter-form {
+    display: flex;
+    max-width: 500px;
+    margin: 1rem auto 0;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    font-family: inherit;
+}
+
+.newsletter-form button {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0 1.5rem;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.newsletter-form button:hover {
+    background: #e89f00;
+}
+
+.newsletter-success {
+    display: none;
+    color: var(--success-color);
+    margin-top: 1rem;
+    font-weight: 600;
+}
+
+/* Related Links */
+.related-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.related-link {
+    background: white;
+    padding: 1rem 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.related-link:hover {
+    background: var(--secondary-color);
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* CTA Section */
+.cta-section {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.cta-button {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    animation: pulse 2s infinite;
+}
+
+.cta-button:hover {
+    background: var(--accent-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+}
+
+.youtube-channel {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.youtube-link {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.youtube-link:hover {
+    color: #ff0000;
+}
+
+.youtube-link i {
+    color: #ff0000;
+    font-size: 1.2rem;
+}
+</style>
+</head>
+<body>
+    <header id="mainHeader">
+        <div class="header-container">
+            <h1>Learn Python By Dark 10</h1>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#intro">Introduction</a></li>
+                    <li><a href="#steps">Learning Path</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+            <button class="login-button" id="loginButton">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Your original sections -->
+        <section class="section" id="intro">
+            <div class="container">
+                <h2>Introduction</h2>
+                <div class="faq-container">
+                    <p>Python is a widely used general-purpose, high level programming language. It was created by Guido van Rossum in 1991 and further developed by the Python Software Foundation. It was designed with an emphasis on code readability, and its syntax allows programmers to express their concepts in fewer lines of code. Python is a programming language that lets you work quickly and integrate systems more efficiently. There are two major Python versions: Python 2 and Python 3. Both are quite different.</p>
+                    <p>
+                        <h2 id="Features">Key Features of Python:</h2><br><br>
+                        1.Easy to Learn and Use: Python's syntax is clear and concise, which makes it easy to learn for beginners. It emphasizes readability, allowing programmers to write clean and maintainable code.
+                        <br><br>
+                        2.Interpreted Language: Python is an interpreted language, meaning that the code is executed line by line, making debugging easier and reducing the complexity of compilation steps.
+                        <br><br>
+                        3.Dynamically Typed: Python does not require explicit declaration of variable types. The type is determined at runtime, which provides flexibility and reduces the amount of code needed.
+                        <br><br>
+                        4.Large Standard Library: Python comes with a rich standard library that supports many common programming tasks, such as file I/O, system calls, and even web browsers, eliminating the need to write code from scratch.
+                        <br><br>
+                        5.Extensive Third-Party Libraries: Python's package ecosystem is vast, with libraries available for almost any task imaginable, from web frameworks like Django and Flask to data analysis libraries like Pandas and NumPy.
+                        <br><br>
+                        6.Cross-Platform Compatibility: Python runs on various operating systems, including Windows, macOS, and Linux, making it a versatile choice for different environments.
+                        <br><br>
+                        7.Strong Community Support: Python has a large and active community that contributes to its development and provides extensive documentation, tutorials, and forums for learning and troubleshooting.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="steps" class="section">
+            <div class="container">
+                <h1>Steps to Learn Python</h1>
+                <div class="progress-bar-container">
+                    <div id="progressBar" class="progress-bar"></div>
+                </div>
+                <ol>
+                    <li> <h1>Understand the Basics</h1>
+                        <ul type="disc">
+                            <li>Set Up Your Environment: Install Python on your computer. You can download it from the official Python website.
+                                 Optionally, install an Integrated Development Environment (IDE) like Visual Studio Code, 
+                                PyCharm, or an online environment like Jupyter Notebooks.
+                            </li>
+                            <li>Learn Basic Syntax: Familiarize yourself with Python's syntax, which includes understanding how to write variables, data types, functions, and control structures (like loops and conditionals).
+                            </li>
+                            <li>
+                                Practice Simple Programs: Start by writing simple programs to apply what you've learned. Examples include a program that prints "Hello, World!" or
+                                 one that performs basic arithmetic operations.
+                            </li>
+                        </ul>
+                    </li>
+                    <li><h1>Master Data Structures and Control Flow</h1>
+                        <ul type="disc">
+                            <li>
+                                Explore Data Types: Dive into more complex data types like lists, tuples, dictionaries, and sets.
+                                 Understand how to manipulate these data structures.
+                            </li>
+                            <li>
+                                Control Structures: Learn about different control structures such as 'if', 'for', 'while', and 'try-except' blocks.
+                                 This knowledge will help you write more dynamic and error-tolerant programs.
+                            </li>
+                            <li>
+                                Functions: Understand how to define and call functions, pass arguments, and return values. Learn about the importance
+                                 of modularity and reusability in code.
+                            </li>
+                        </ul>
+                    </li>
+                    <li><h1>Advanced Concepts</h1>
+                        <ul type="disc">
+                            <li>
+                                Object-Oriented Programming (OOP): Learn about classes, objects, inheritance, and polymorphism. This will allow you to 
+                                model complex problems more efficiently.
+                            </li>
+                            <li>
+                                File Handling: Learn to read from and write to files, which is crucial for applications that need to store or process data.
+                            </li>
+                            <li>
+                                Error Handling and Debugging: Understand how to handle errors gracefully and use debugging tools to troubleshoot and optimize your code.
+                            </li>
+                        </ul>
+                    </li>
+                    <li><h1>Explore Libraries and Frameworks</h1>
+                        <ul type="disc">
+                            <li>
+                                Standard Library: Get acquainted with Python's standard library, which provides modules for various tasks like math operations, date and
+                                 time handling, and more.
+                            </li>
+                            <li>
+                                Third-Party Libraries: Depending on your interest, explore popular libraries such as NumPy and Pandas for data analysis, Matplotlib and 
+                                Seaborn for visualization, and requests for web scraping.
+                            </li>
+                            <li>
+                                Web Frameworks: If interested in web development, learn about frameworks like Django and Flask.
+                            </li>
+                        </ul>
+                    </li>
+                    <li><h1>Practical Application</h1>
+                        <ul type="disc">
+                            <li>Build Projects: Start building small projects to apply your skills. This could include a simple web app, a data analysis script, or a game.
+                                 Projects will help reinforce your learning and give you hands-on experience.
+                            </li>
+                            <li>
+                                Contribute to Open Source: Contributing to open-source projects can provide real-world experience and expose you to professional coding practices.
+                            </li>
+                        </ul>
+                    </li>
+                    <li><h1>Continuous Learning and Practice</h1>
+                        <ul type="disc">
+                            <li>
+                                Online Resources: Make use of online resources such as tutorials, forums, and documentation. Websites like Codecademy, Coursera, and Khan Academy
+                                 offer courses tailored to different levels of Python learners.
+                            </li>
+                            <li>
+                                Books and Documentation: Consider reading books like "Automate the Boring Stuff with Python" or "Python Crash Course". The official Python documentation 
+                                is also an invaluable resource.
+                            </li>
+                            <li>
+                                Join Communities: Engage with Python communities on platforms like Stack Overflow, Reddit, or local meetups. This is a great way to get help, share 
+                                knowledge, and stay motivated
+                            </li>
+                        </ul>
+                    </li>
+                    <li><h1>Specialization</h1>
+                        <ul type="disc">
+                            <li>
+                                Focus on a Domain: As you become comfortable with Python, consider specializing in a domain that interests you, such as data science, web development,
+                                 or machine learning. This will help you apply Python more effectively and advance in your chosen field.
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+                <p>By following these steps and dedicating time to practice, you will gradually develop proficiency in Python and be well-equipped to tackle various programming challenges.</p>
+            </div>
+        </section>
+
+        <section id="resources" class="section">
+            <div class="container">
+                <h1>Resources</h1>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <div class="resource-img">
+                            <img src="https://www.python.org/static/img/python-logo.png" alt="Official Python Website">
+                        </div>
+                        <div class="resource-content">
+                            <h3>Official Python Website</h3>
+                            <p>The primary source for Python documentation, downloads, and news.</p>
+                            <a href="https://www.python.org/" target="_blank" class="resource-link">
+                                Visit Site <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-img">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Udemy_logo.svg/2560px-Udemy_logo.svg.png" alt="Udemy">
+                        </div>
+                        <div class="resource-content">
+                            <h3>Udemy Python Bootcamp</h3>
+                            <p>Comprehensive courses for all levels with hands-on projects.</p>
+                            <a href="https://www.udemy.com/topic/python/" target="_blank" class="resource-link">
+                                Explore Courses <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-img">
+                            <img src="https://www.freecodecamp.org/news/content/images/size/w2000/2021/03/green-panda.png" alt="FreeCodeCamp">
+                        </div>
+                        <div class="resource-content">
+                            <h3>FreeCodeCamp Python</h3>
+                            <p>Free, interactive coding challenges and projects.</p>
+                            <a href="https://www.freecodecamp.org/learn/scientific-computing-with-python/" target="_blank" class="resource-link">
+                                Start Learning <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-img">
+                            <img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210223165952/GeeksforGeeks.jpg" alt="GeeksforGeeks">
+                        </div>
+                        <div class="resource-content">
+                            <h3>GeeksforGeeks Python</h3>
+                            <p>Technical articles, tutorials, and coding challenges.</p>
+                            <a href="https://www.geeksforgeeks.org/python-programming-language/" target="_blank" class="resource-link">
+                                Read Articles <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="section">
+            <div class="container">
+                <h2>FAQ</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <h3 class="faq-question">What is Python used for? <i class="fas fa-chevron-down"></i></h3>
+                        <div class="faq-answer">
+                            <p>Python is used for web development, data analysis, artificial intelligence, machine learning, automation, and more.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">Is Python difficult to learn? <i class="fas fa-chevron-down"></i></h3>
+                        <div class="faq-answer">
+                            <p>Python is known for its simplicity and readability, making it one of the easiest programming languages to learn, especially for beginners.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">How long does it take to learn Python? <i class="fas fa-chevron-down"></i></h3>
+                        <div class="faq-answer">
+                            <p>The time it takes to learn Python depends on your background and how much time you dedicate. On average, you can learn the basics in a few weeks to a few months.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">What is PEP 8? <i class="fas fa-chevron-down"></i></h3>
+                        <div class="faq-answer">
+                            <p>PEP 8 is the Python Enhancement Proposal that provides guidelines and best practices on how to write Python code. It covers topics like indentation, line length, naming conventions, and more, to help maintain readability and consistency.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">What is a Python Virtual Environment? <i class="fas fa-chevron-down"></i></h3>
+                        <div class="faq-answer">
+                            <p>A virtual environment is an isolated Python environment that allows you to install packages and dependencies specific to a project without affecting other projects or the system-wide Python installation.</p>
+                        </div>
+                    </div>
+                   <div class="faq-item">
+                        <h3 class="faq-question">What is the Global Interpreter Lock (GIL)? <i class="fas fa-chevron-down"></i></h3>
+                        <div class="faq-answer">
+                            <p>The Global Interpreter Lock (GIL) is a mutex that protects access to Python objects, preventing multiple native threads from executing Python bytecodes at once. This means that only one thread can execute in the Python interpreter at a time, which can be a limitation for CPU-bound programs.</p>
+                        </div>
+                   </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2>About Dark 10</h2>
+                
+                <div class="company-info">
+                    <h3>Our Mission</h3>
+                    <p>At Dark 10, we're passionate about democratizing programming education. Founded by Tanmay Singh, our mission is to make high-quality Python learning accessible to everyone, regardless of their background or experience level. We believe in learning by doing, and our project-based approach ensures you gain practical skills you can immediately apply.</p>
+                    
+                    <div class="company-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">10K+</div>
+                            <div class="stat-label">Students Taught</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Hours of Content</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Satisfaction Guarantee</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-section">
+                    <h3>Meet Our Founder</h3>
+                    <p class="section-description">The visionary behind Dark 10's Python education initiative</p>
+                    
+                    <div class="team-container">
+                        <div class="team-member">
+                            <div class="member-img">
+                                <img src="https://via.placeholder.com/300" alt="Tanmay Singh">
+                            </div>
+                            <h4 class="member-name">Tanmay Singh</h4>
+                            <div class="member-role">Founder & Lead Instructor</div>
+                            <p class="member-bio">With over 8 years of Python development experience and 5 years in tech education, Tanmay founded Dark 10 to create the programming courses he wished existed when he was learning. His teaching philosophy focuses on practical applications and building real-world projects.</p>
+                            <div class="social-links">
+                                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                                <a href="https://www.youtube.com/@DARK-10-TanmaySingh" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <h1 id="PCE" class="section">Python Code Examples</h1>
+
+        <div class="code-example">
+            <div class="code-title"><i class="fas fa-code"></i> 1. Hello World</div>
+            <pre><code>
+print("Hello, World!")
+            </code></pre>
+        </div>
+
+        <div class="code-example">
+            <div class="code-title"><i class="fas fa-calculator"></i> 2. Basic Arithmetic</div>
+            <pre><code>
+a = 10
+b = 20
+sum = a + b
+print("Sum:", sum)
+            </code></pre>
+        </div>
+
+        <div class="code-example">
+            <div class="code-title"><i class="fas fa-project-diagram"></i> 3. If-Else Statement</div>
+            <pre><code>
+x = 5
+if x > 0:
+    print("x is positive")
+else:
+    print("x is non-positive")
+            </code></pre>
+        </div>
+
+        <div class="code-example">
+            <div class="code-title"><i class="fas fa-redo"></i> 4. For Loop</div>
+            <pre><code>
+for i in range(5):
+    print("Iteration", i)
+            </code></pre>
+        </div>
+
+        <div class="code-example">
+            <div class="code-title"><i class="fas fa-sync-alt"></i> 5. While Loop</div>
+            <pre><code>
+i = 0
+while i < 5:
+    print("Count:", i)
+    i += 1
+            </code></pre>
+        </div>
+
+        <div class="code-example">
+            <div class="code-title"><i class="fas fa-list"></i> 6. List Comprehension</div>
+            <pre><code>
+squares = [x**2 for x in range(10)]
+print("Squares:", squares)
+            </code></pre>
+        </div>
+
+        <div class="code-example">
+            <div class="code-title"><i class="fas fa-function"></i> 7. Function Definition</div>
+            <pre><code>
+def greet(name):
+    return f"Hello, {name}!"
+
+print(greet("Alice"))
+            </code></pre>
+        </div>
+
+        <div class="code-example">
+            <div class="code-title"><i class="fas fa-object-group"></i> 8. Class Definition</div>
+            <pre><code>
+class Dog:
+    def __init__(self, name):
+        self.name = name
+
+    def bark(self):
+        return "Woof!"
+
+my_dog = Dog("Rex")
+print(my_dog.bark())
+            </code></pre>
+        </div>
+
+        <div class="code-example">
+            <div class="code-title"><i class="fas fa-book"></i> 9. Dictionary Access</div>
+            <pre><code>
+person = {"name": "Bob", "age": 30}
+print("Name:", person["name"])
+print("Age:", person["age"])
+            </code></pre>
+        </div>
+
+        <div class="code-example">
+            <div class="code-title"><i class="fas fa-exclamation-triangle"></i> 10. Exception Handling</div>
+            <pre><code>
+try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+            </code></pre>
+        </div>
+
+        <!-- Interactive Code Playground -->
+        <section class="section" id="playground">
+            <div class="container">
+                <h2>Interactive Python Playground</h2>
+                <div class="code-playground">
+                    <div class="editor-container">
+                        <div class="editor-header">
+                            <span class="editor-title">Python Code Editor</span>
+                            <button id="runCode" class="run-button">
+                                <i class="fas fa-play"></i> Run Code
+                            </button>
+                        </div>
+                        <textarea id="codeEditor" class="code-editor" spellcheck="false"># Write your Python code here
+print("Hello, World!")</textarea>
+                    </div>
+                    <div class="output-container">
+                        <div class="output-header">Output</div>
+                        <div id="codeOutput" class="code-output"></div>
+                    </div>
+                </div>
+                <div class="playground-tips">
+                    <h4>Try These Examples:</h4>
+                    <div class="example-buttons">
+                        <button class="example-btn" data-code="for i in range(5):&#10;    print(f'Number: {i}')">Loop Example</button>
+                        <button class="example-btn" data-code="def greet(name):&#10;    return f'Hello, {name}!'&#10;&#10;print(greet('Python Learner'))">Function Example</button>
+                        <button class="example-btn" data-code="numbers = [1, 2, 3, 4, 5]&#10;squares = [n**2 for n in numbers]&#10;print(squares)">List Comprehension</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="quiz" class="section">
+            <div class="container">
+                <h2>Python Quiz</h2>
+                <form id="quizForm">
+                    <div class="quiz-question">
+                        <p>1. What symbol is used for comments in Python?</p>
+                        <label>
+                            <input type="radio" name="q1" value="#"> #
+                            <span class="radio-custom"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="q1" value="//"> //
+                            <span class="radio-custom"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="q1" value="/*"> /*
+                            <span class="radio-custom"></span>
+                        </label>
+                    </div>
+                    <div class="quiz-question">
+                        <p>2. How do you start a function definition in Python?</p>
+                        <label>
+                            <input type="radio" name="q2" value="def"> def
+                            <span class="radio-custom"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="q2" value="function"> function
+                            <span class="radio-custom"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="q2" value="func"> func
+                            <span class="radio-custom"></span>
+                        </label>
+                    </div>
+                    <button type="button" id="submitQuiz" class="cta-button">
+                        <i class="fas fa-paper-plane"></i> Submit Quiz
+                    </button>
+                </form>
+                <div id="quizResult" class="quiz-result">
+                    <!-- Quiz result will be displayed here -->
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2>Related Pages</h2>
+                <div class="related-links">
+                    <a href="installation-guide.html" class="related-link">
+                        <i class="fas fa-download"></i> Installation Guide
+                    </a>
+                    <a href="getting-started.html" class="related-link">
+                        <i class="fas fa-rocket"></i> Getting Started
+                    </a>
+                    <a href="programming-basics.html" class="related-link">
+                        <i class="fas fa-laptop-code"></i> Python Basics
+                    </a>
+                    <a href="advanced-python.html" class="related-link">
+                        <i class="fas fa-brain"></i> Advanced Python
+                    </a>
+                    <a href="project-ideas.html" class="related-link">
+                        <i class="fas fa-lightbulb"></i> Project Ideas
+                    </a>
+                </div>
+                
+                <div class="youtube-channel">
+                    <a href="https://www.youtube.com/@DARK-10-TanmaySingh" class="youtube-link">
+                        <i class="fab fa-youtube"></i> Subscribe to DARK 10 on YouTube
+                    </a>
+                </div>
+                
+                <div class="cta-section">
+                    <h3>Ready to Master Python?</h3>
+                    <p>Join our community of Python learners today!</p>
+                    <button class="cta-button" id="enrollButton">
+                        <i class="fas fa-user-plus"></i> Enroll Now
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Dark Mode Toggle -->
+    <div class="dark-mode-toggle" id="darkModeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <div class="footer-logo">Learn Python By Dark 10</div>
+                <p>Making Python programming accessible and enjoyable for everyone. Our mission is to empower learners with practical coding skills that open doors to new opportunities.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.youtube.com/@DARK-10-TanmaySingh" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#intro">Introduction</a></li>
+                    <li><a href="#steps">Learning Path</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Cheat Sheets</a></li>
+                    <li><a href="#">Video Tutorials</a></li>
+                    <li><a href="#">Community Forum</a></li>
+                    <li><a href="#">Project Templates</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> contact@dark10python.com</p>
+                <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Code Street, Tech City, TC 10001</p>
+                
+                <form class="newsletter-form">
+                    <h4>Subscribe to Newsletter</h4>
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit">
+                        <i class="fas fa-paper-plane"></i> Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2024 Learn Python By Dark 10. All rights reserved.</p>
+            <div class="legal-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+                <a href="cookies.html">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const icon = darkModeToggle.querySelector('i');
+            if (document.body.classList.contains('dark-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        });
+
+        // Interactive Code Playground
+        const codeEditor = document.getElementById('codeEditor');
+        const runButton = document.getElementById('runCode');
+        const codeOutput = document.getElementById('codeOutput');
+        const exampleButtons = document.querySelectorAll('.example-btn');
+        
+        runButton.addEventListener('click', () => {
+            try {
+                // In a real implementation, you would use a safe evaluation method
+                // or send the code to a server for execution
+                const code = codeEditor.value;
+                const originalLog = console.log;
+                let output = '';
+                
+                console.log = function(message) {
+                    output += message + '\n';
+                };
+                
+                // WARNING: In production, never use eval with user input!
+                // This is just for demonstration purposes
+                eval(code);
+                
+                console.log = originalLog;
+                codeOutput.textContent = output || 'No output (try using print())';
+                codeOutput.style.color = '#333';
+            } catch (error) {
+                codeOutput.textContent = 'Error: ' + error.message;
+                codeOutput.style.color = 'var(--danger-color)';
+            }
+        });
+
+        exampleButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                codeEditor.value = button.getAttribute('data-code').replace(/&#10;/g, '\n');
+            });
+        });
+
+        // Quiz Functionality
+        const quizForm = document.getElementById('quizForm');
+        const submitQuizBtn = document.getElementById('submitQuiz');
+        const quizResultDiv = document.getElementById('quizResult');
+        
+        submitQuizBtn.addEventListener('click', () => {
+            const answers = {
+                q1: '#',
+                q2: 'def'
+            };
+            
+            let score = 0;
+            const formData = new FormData(quizForm);
+            
+            for (const [question, answer] of formData.entries()) {
+                if (answers[question] === answer) {
+                    score++;
+                }
+            }
+            
+            const totalQuestions = Object.keys(answers).length;
+            const percentage = Math.round((score / totalQuestions) * 100);
+            
+            let message = '';
+            if (percentage === 100) {
+                message = `Perfect! You scored ${score}/${totalQuestions} - Python Master!`;
+                quizResultDiv.style.color = 'var(--success-color)';
+            } else if (percentage >= 50) {
+                message = `Good job! You scored ${score}/${totalQuestions} - Keep learning!`;
+                quizResultDiv.style.color = 'var(--info-color)';
+            } else {
+                message = `You scored ${score}/${totalQuestions} - Review the material and try again!`;
+                quizResultDiv.style.color = 'var(--warning-color)';
+            }
+            
+            quizResultDiv.innerHTML = `
+                <h4>Quiz Results</h4>
+                <p>${message}</p>
+                <button onclick="location.reload()" class="quiz-retry-btn">
+                    <i class="fas fa-redo"></i> Try Again
+                </button>
+            `;
+            quizResultDiv.style.display = 'block';
+        });
+
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('active');
+            } else {
+                backToTopBtn.classList.remove('active');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (mainNav.classList.contains('active')) {
+                        mainNav.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
+        });
+
+        // Header Scroll Effect
+        const header = document.getElementById('mainHeader');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+
+        // Enroll Button
+        const enrollButton = document.getElementById('enrollButton');
+        enrollButton.addEventListener('click', () => {
+            alert('Enrollment functionality would be implemented here!');
+        });
+
+        // Login Button
+        const loginButton = document.getElementById('loginButton');
+        loginButton.addEventListener('click', () => {
+            alert('Login functionality would be implemented here!');
+        });
+
+        // Newsletter Form
+        const newsletterForm = document.querySelector('.newsletter-form');
+        const newsletterSuccess = document.createElement('div');
+        newsletterSuccess.className = 'newsletter-success';
+        newsletterSuccess.innerHTML = '<i class="fas fa-check-circle"></i> Thank you for subscribing!';
+        newsletterForm.parentNode.insertBefore(newsletterSuccess, newsletterForm.nextSibling);
+        newsletterSuccess.style.display = 'none';
+        
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            newsletterForm.style.display = 'none';
+            newsletterSuccess.style.display = 'block';
+        });
+
+        // Progress Bar Animation
+        const progressBar = document.getElementById('progressBar');
+        let width = 0;
+        const progressInterval = setInterval(() => {
+            if (width >= 100) {
+                clearInterval(progressInterval);
+            } else {
+                width++;
+                progressBar.style.width = width + '%';
+            }
+        }, 30);
+
+        // FAQ Toggle
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isActive = question.classList.contains('active');
+                
+                // Close all other FAQs
+                faqQuestions.forEach(q => {
+                    if (q !== question) {
+                        q.classList.remove('active');
+                        q.nextElementSibling.classList.remove('show');
+                    }
+                });
+                
+                // Toggle current FAQ
+                question.classList.toggle('active');
+                answer.classList.toggle('show');
+            });
+        });
+    });
+
+    // Animation on scroll
+    const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.section, .feature-item, .resource-card, .team-member, .code-example');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeIn 1s ease-out forwards';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        elements.forEach(element => {
+            element.style.opacity = '0';
+            observer.observe(element);
+        });
+    };
+
+    window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
