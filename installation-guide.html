@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Python Installation Guide - A comprehensive guide to installing Python on different operating systems.">
+    <title>Python Installation Guide</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background-image: linear-gradient(to right, #6a11cb, #2575fc);
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            margin: 0;
+        }
+
+        nav {
+            position: relative;
+            top: 0;
+            background-color: #333;
+            padding: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav li {
+            position: relative;
+        }
+
+        nav li a {
+            display: block;
+            padding: 15px 25px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        nav li a:hover,
+        nav li a:focus {
+            background-color: #575757;
+            transform: translateY(-2px);
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        aside {
+            width: 25%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        aside h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #2575fc;
+        }
+
+        aside ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        aside li {
+            margin-bottom: 15px;
+        }
+
+        aside li a {
+            color: #2575fc;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        aside li a:hover,
+        aside li a:focus {
+            color: #1e3a8a;
+        }
+
+        section {
+            width: 70%;
+            padding: 20px;
+            box-sizing: border-box;
+            margin-bottom: 40px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #1e3a8a;
+        }
+
+        section p {
+            font-size: 1.3em;
+            line-height: 1.8;
+        }
+
+        section a {
+            color: #2575fc;
+            text-decoration: none;
+            transition: text-decoration 0.3s;
+        }
+
+        section a:hover,
+        section a:focus {
+            text-decoration: underline;
+        }
+
+        .cta-section {
+            background-color: #6a11cb;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .cta-section form input[type="email"] {
+            padding: 10px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            width: 300px;
+            max-width: 100%;
+        }
+
+        .cta-section form button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            background-color: #2575fc;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .cta-section form button:hover,
+        .cta-section form button:focus {
+            background-color: #1e3a8a;
+        }
+
+        .faq-section {
+            margin: 40px 0;
+        }
+
+        .faq-section h2 {
+            font-size: 2.5em;
+            color: #1e3a8a;
+            margin-bottom: 20px;
+        }
+
+        .faq-section details {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-section summary {
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        .faq-section p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+
+        .related-links {
+            width: 70%;
+            margin: 40px auto;
+            padding: 20px;
+            text-align: center;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .related-links ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .related-links li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        .related-links li a {
+            color: #1e3a8a;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        .related-links li a:hover,
+        .related-links li a:focus {
+            color: #2575fc;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+        }
+
+        footer .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        footer .footer-links li {
+            margin: 0 15px;
+        }
+
+        footer .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+
+        footer .footer-links a:hover,
+        footer .footer-links a:focus {
+            color: #2575fc;
+        }
+
+        @media screen and (max-width: 768px) {
+            main {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            aside {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            section {
+                width: 100%;
+            }
+
+            nav li a {
+                padding: 15px;
+            }
+
+            .related-links {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Python Installation Guide</h1>
+    </header>
+    <main>
+        <aside>
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#download" aria-label="Downloading Python">Downloading Python</a></li>
+                <li><a href="#windows" aria-label="Installing on Windows">Installing on Windows</a></li>
+                <li><a href="#macos" aria-label="Installing on MacOS">Installing on MacOS</a></li>
+                <li><a href="#linux" aria-label="Installing on Linux">Installing on Linux</a></li>
+                <li><a href="#troubleshooting" aria-label="Troubleshooting">Troubleshooting</a></li>
+            </ul>
+        </aside>
+        <section id="download">
+            <h2>Downloading Python</h2>
+            <p>Python can be downloaded from the official website. Choose the version that suits your operating system.</p>
+        </section>
+        <section id="windows">
+            <h2>Installing on Windows</h2>
+            <p>Download the executable installer from the Python website. Double-click to run it and follow the
+                on-screen instructions.</p>
+        </section>
+        <section id="macos">
+            <h2>Installing on MacOS</h2>
+            <p>Python can be installed on MacOS using Homebrew. Use the command <code>brew install python</code> in
+                your terminal.</p>
+        </section>
+        <section id="linux">
+            <h2>Installing on Linux</h2>
+            <p>Most Linux distributions come with Python pre-installed. If not, use your package manager to install
+                Python.</p>
+        </section>
+          <section id="troubleshooting">
+            <h2>Troubleshooting</h2>
+            <p>If you encounter any issues during the installation, refer to the official Python documentation or the
+                community forums. They provide a wealth of information and support for troubleshooting.</p>
+            <p>Common issues include setting the correct PATH, dealing with version conflicts, and resolving
+                installation permissions.</p>
+        </section>
+    </main>
+    <div class="cta-section">
+        <h2>Stay Updated!</h2>
+        <p>Subscribe to our newsletter to get the latest updates on Python and related topics.</p>
+                <form id="contact-form" action="https://formspree.io/f/xwpedjdn" method="POST">
+            <input name="email" type="email" placeholder="Your Email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </div>
+    <div class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <details>
+            <summary>How do I check the Python version?</summary>
+            <p>You can check your Python version by running the command <code>python --version</code> in your terminal.
+            </p>
+        </details>
+        <details>
+            <summary>Do I need to uninstall older Python versions?</summary>
+            <p>It is recommended to uninstall older versions before installing a new one to avoid conflicts.</p>
+        </details>
+    </div>
+    <section>
+        <h2><mark style="background-image: linear-gradient(to right, #6a11cb, #2575fc);color:white">Related Pages</mark></h2>
+        <ul>
+            <li><a href="index.html" aria-label="Home"><h3>Home</h3></a></li>
+            <li><a href="getting-started.html" aria-label="Getting Started"><h3>Getting Started</h3></a></li>
+            <li><a href="programming-basics.html" aria-label="Programming Basics"><h3>Programming Basics</h3></a></li>
+            <li><a href="advanced-python.html" aria-label="Advanced Python"><h3>Advanced Python</h3></a></li>
+            <li><a href="libraries-frameworks.html" aria-label="Libraries & Frameworks"><h3>Libraries & Frameworks</h2></a></li>
+            <li><a href="project-ideas.html" aria-label="Project Ideas"><h3>Project Ideas</h3></a></li>
+        </ul>
+
+        <div clas="footer-links">
+            <a href="https://www.youtube.com/@DARK-10-TanmaySingh">
+            <h1>Youtube: DARK 10 </h1></a>
+
+
+            
+    </section>
+    <footer>
+        <p>&copy;2024 Learn Python By Dark 10 | All rights reserved.</p>
+        <ul style="color:#333">
+            <li><a href="privacy-policy.html" aria-label="Privacy Policy" style="color:white">Privacy Policy</a></li>
+            <li><a href="terms-of-service.html" aria-label="Terms of Service" style="color:white">Terms of Service</a></li>
+            <li><a href="contact.html" aria-label="Contact Us" style="color:white">Contact Us</a></li>
+        </ul>
+    </footer>
+
+</body>
+
+</html>
